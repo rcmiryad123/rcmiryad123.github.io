@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Rizky Ferdi Nugraha</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498DB;
+            --secondary-color: #2C3E50;
+            --accent-color: #1ABC9C;
+            --text-color: #34495E;
+        }
+
+        .hero-section {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            overflow: hidden;
+            padding: 200px 0 200px;
+            isolation: isolate;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 70% 30%,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    transparent 50%);
+            animation: hero-bg-animation 10s infinite alternate;
+            z-index: -1;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--secondary-color));
+            z-index: -1;
+        }
+
+        @keyframes hero-bg-animation {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+
+            100% {
+                transform: rotate(20deg) scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-pretext {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero-pretext::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: white;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, white, rgba(255, 255, 255, 0.7));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+            position: relative;
+        }
+
+        .social-icons a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        .social-icons a:hover::before {
+            left: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 150px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .social-icons a {
+                margin: 0 10px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Partikel Efek */
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: particle-float 5s infinite alternate;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+    <style>
+        /* Tambahkan di bagian <style> sebelumnya */
+        .custom-navbar {
+            background-color: transparent;
+            transition: all 0.3s ease;
+            padding: 15px 0;
+        }
+
+        .custom-navbar.scrolled {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .custom-navbar .navbar-brand {
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .custom-navbar .navbar-brand:hover {
+            color: var(--primary-color);
+        }
+
+        .custom-navbar .nav-link {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 10px;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .custom-navbar .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover {
+            color: white;
+        }
+
+        .custom-navbar .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .custom-navbar .nav-link.active {
+            color: white;
+        }
+
+        .navbar-contact-btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-contact-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navbar Toggler untuk Mobile */
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        @media (max-width: 991px) {
+            .custom-navbar {
+                background-color: var(--secondary-color);
+            }
+
+            .custom-navbar .nav-link {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .navbar-contact-btn {
+                display: block;
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+    <style>
+        .about-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image {
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image-wrapper:hover .profile-image {
+            transform: scale(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 98, 224, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-image-wrapper:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .skill-badge {
+            background-color: rgba(52, 98, 224, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--primary-color);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 60px 0;
+            }
+
+            .profile-image {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+    <style>
+        .portfolio-section {
+            background-color: #f8f9fa;
+        }
+
+        .portfolio-filter .btn {
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-filter .btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .portfolio-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .portfolio-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image img {
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(52, 98, 224, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-card:hover .portfolio-image img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay .overlay-content {
+            text-align: center;
+        }
+
+        .portfolio-overlay .btn {
+            margin: 0 5px;
+        }
+
+        .tech-badges .badge {
+            font-size: 0.7rem;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-filter .btn {
+                margin: 5px;
+            }
+        }
+    </style>
+    <style>
+        /* Style untuk Modal Kontak */
+        .contact-info-side {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .contact-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            top: 0;
+            left: 0;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-details div {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-links a {
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .input-group-text {
+            background-color: transparent;
+            border-right: none;
+        }
+
+        .form-control {
+            border-left: none;
+            box-shadow: none;
+        }
+
+        .form-control:focus,
+        .input-group-text:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+    </style>
+    <style>
+        /* Style Footer */
+        .footer-section {
+            background-color: #1a1a2e;
+            color: #f1f1f1;
+        }
+
+        .footer-title {
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links a {
+            color: #a1a1a1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-social-links .social-icon {
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .footer-social-links .social-icon:hover {
+            opacity: 1;
+            color: var(--primary-color) !important;
+            transform: translateY(-3px);
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-newsletter .input-group {
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .footer-newsletter .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+        }
+
+        .footer-newsletter .form-control::placeholder {
+            color: #a1a1a1;
+        }
+
+        .footer-newsletter .btn {
+            border-radius: 0;
+        }
+
+        @media (max-width: 768px) {
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-social-links {
+                justify-content: center;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">RFN</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portofolio">Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="navbar-contact-btn" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            <i class="fas fa-paper-plane me-2"></i>Hubungi Saya
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center" id="beranda" data-aos="fade-up">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <div class="hero-content">
+                        <p class="hero-pretext">Halo, Saya</p>
+                        <h1 class="hero-title">Rizky Ferdi Nugraha</h1>
+                        <h2 class="hero-subtitle">
+                            Seorang Fullstack Web Developer yang berdedikasi menciptakan solusi digital inovatif
+                        </h2>
+
+                        <div class="social-icons mb-4">
+                            <a href="#" title="Email"> <i class="fas fa-envelope"></i></a>
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+
+                        <button class="hero-cta" data-bs-target="#contactModal" data-bs-toggle="modal">
+                            <i class="fas fa-paper-plane me-2"></i> Hubungi Saya
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Tentang -->
+    <section id="tentang" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="about-title">Tentang Saya</h2>
+                    <p class="text-muted">Perkenalkan diri saya lebih dekat</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center bg-white shadow-lg rounded-4 overflow-hidden">
+                <div class="col-lg-5 p-0" data-aos="fade-right">
+                    <div class="profile-image-wrapper position-relative">
+                        <img src="cover.png" alt="Rizky Ferdi Nugraha" class="img-fluid w-100 profile-image">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 p-5 about-content" data-aos="fade-left">
+                    <h3 class="mb-4 text-primary">Halo, Saya Rizky Ferdi Nugraha</h3>
+                    <p class="about-description lead">
+                        Saya adalah seorang Fullstack Web Developer dengan passion dalam menciptakan solusi digital
+                        inovatif.
+                        Dengan pengalaman lebih dari 3 tahun di industri teknologi, saya telah membantu berbagai
+                        perusahaan
+                        mengembangkan aplikasi web yang efisien dan user-friendly.
+                    </p>
+
+                    <div class="skills-section mt-4">
+                        <h4 class="mb-3 text-secondary">Keahlian Saya</h4>
+                        <div class="skills-badges d-flex flex-wrap gap-2">
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">React.js</span>
+                            <span class="skill-badge">Node.js</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">Laravel</span>
+                            <span class="skill-badge">Docker</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-section mt-4">
+                        <a href="#" class="btn btn-primary btn-lg rounded-pill">
+                            Download CV
+                            <i class="fas fa-download ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kartu Layanan -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="row g-4">
+                        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="service-card text-center p-4 bg-white rounded-4 shadow-sm h-100">
+                                <div class="service-icon mb-3">
+                                    <i class="fas fa-laptop-code text-primary fs-1"></i>
+                                </div>
+                                <h4 class="mb-3">Web Development</h4>
+                                <p class="text-muted">
+                                    Menciptakan solusi web responsif dan performant menggunakan teknologi terkini.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="service-card text-center p-4 bg-white rounded-4 shadow-sm h-100">
+                                <div class="service-icon mb-3">
+                                    <i class="fas fa-mobile-alt text-primary fs-1"></i>
+                                </div>
+                                <h4 class="mb-3">Mobile Responsive</h4>
+                                <p class="text-muted">
+                                    Desain antarmuka yang mulus dan fungsional di berbagai perangkat.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="service-card text-center p-4 bg-white rounded-4 shadow-sm h-100">
+                                <div class="service-icon mb-3">
+                                    <i class="fas fa-server text-primary fs-1"></i>
+                                </div>
+                                <h4 class="mb-3">Backend Solutions</h4>
+                                <p class="text-muted">
+                                    Merancang arsitektur backend yang scalable dan aman.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pengalaman Kerja -->
+            <div class="row mt-5">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="section-title">Pengalaman Kerja</h2>
+                    <p class="text-muted">Perjalanan profesional saya</p>
+                </div>
+                <div class="col-12">
+                    <div class="timeline position-relative">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="timeline-item mb-4 p-4 bg-white rounded-4 shadow-sm">
+                                    <div class="timeline-header d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="timeline-title mb-0">Senior Web Developer</h4>
+                                        <span class="badge bg-primary">2021 - Sekarang</span>
+                                    </div>
+                                    <p class="text-muted mb-0">PT Inovasi Digital Indonesia</p>
+                                    <p class="text-muted">
+                                        Mengembangkan solusi web enterprise dan merancang arsitektur sistem.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="timeline-item mb-4 p-4 bg-white rounded-4 shadow-sm">
+                                    <div class="timeline-header d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="timeline-title mb-0">Web Developer</h4>
+                                        <span class="badge bg-primary">2019 - 2021</span>
+                                    </div>
+                                    <p class="text-muted mb-0">Startup Technology</p>
+                                    <p class="text-muted">
+                                        Mengembangkan aplikasi web dan mobile menggunakan teknologi modern.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Portofolio -->
+    <section id="portofolio" class="portfolio-section py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">Portofolio Saya</h2>
+                    <p class="text-muted">Proyek-proyek yang telah saya kerjakan</p>
+                </div>
+            </div>
+
+            <!-- Kategori Filter -->
+            <div class="row mb-4 justify-content-center">
+                <div class="col-auto">
+                    <div class="portfolio-filter btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary active" data-filter="all">Semua</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="web">Web</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="mobile">Mobile</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="design">Desain</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeri Proyek -->
+            <div class="row portfolio-gallery g-4">
+                <!-- Proyek 1 -->
+                <div class="col-md-4 portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card portfolio-card h-100 border-0 shadow-sm">
+                        <div class="portfolio-image position-relative overflow-hidden">
+                            <img src="project.png" class="card-img-top" alt="Proyek Manajemen Rumah Sakit">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <a href="#" class="btn btn-light rounded-pill me-2">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-pill">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">Sistem Manajemen Rumah Sakit</h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Web Application</span>
+                                <div class="tech-badges">
+                                    <span class="badge bg-primary me-1">Laravel</span>
+                                    <span class="badge bg-info">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="col-md-4 portfolio-item" data-category="mobile" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card portfolio-card h-100 border-0 shadow-sm">
+                        <div class="portfolio-image position-relative overflow-hidden">
+                            <img src="project.png" class="card-img-top" alt="Aplikasi E-Commerce Mobile">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <a href="#" class="btn btn-light rounded-pill me-2">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-pill">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">Aplikasi E-Commerce Mobile</h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Mobile Application</span>
+                                <div class="tech-badges">
+                                    <span class="badge bg-success me-1">React Native</span>
+                                    <span class="badge bg-warning">Firebase</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyek 3 -->
+                <div class="col-md-4 portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card portfolio-card h-100 border-0 shadow-sm">
+                        <div class="portfolio-image position-relative overflow-hidden">
+                            <img src="project.png" class="card-img-top" alt="Sistem Informasi Akademik">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <a href="#" class="btn btn-light rounded-pill me-2">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-pill">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">Sistem Informasi Akademik</h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Web Application</span>
+                                <div class="tech-badges">
+                                    <span class="badge bg-primary me-1">Django</span>
+                                    <span class="badge bg-secondary">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tambahkan proyek lainnya dengan pola yang sama -->
+            </div>
+
+            <!-- Tombol Lihat Lebih Banyak -->
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <a href="#" class="btn btn-primary btn-lg rounded-pill">
+                        Lihat Semua Proyek
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Modal Kontak -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <!-- Sisi Kiri - Informasi Kontak -->
+                        <div class="col-md-5 contact-info-side position-relative">
+                            <div class="contact-overlay position-absolute w-100 h-100"></div>
+                            <div class="contact-info p-4 text-white position-relative z-3">
+                                <h3 class="mb-4">Hubungi Saya</h3>
+                                <p class="mb-4">
+                                    Saya senang mendengar dari Anda! Silakan isi formulir di sebelah kanan
+                                    atau hubungi saya melalui informasi kontak di bawah.
+                                </p>
+
+                                <div class="contact-details">
+                                    <div class="mb-3">
+                                        <i class="fas fa-envelope me-2"></i>
+                                        <span>rizkyferdi@example.com</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <i class="fas fa-phone me-2"></i>
+                                        <span>+62 812-3456-7890</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <i class="fas fa-map-marker-alt me-2"></i>
+                                        <span>Bandung, Indonesia</span>
+                                    </div>
+                                </div>
+
+                                <div class="social-links mt-4">
+                                    <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                                    <a href="#" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
+                                    <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sisi Kanan - Formulir Kontak -->
+                        <div class="col-md-7 p-4">
+                            <button type="button" class="btn-close position-absolute top-0 end-0 m-3"
+                                data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <form id="contactForm" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label for="contactName" class="form-label">Nama Lengkap</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" id="contactName" required>
+                                        <div class="invalid-feedback">
+                                            Silakan masukkan nama Anda
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="contactEmail" class="form-label">Alamat Email</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <input type="email" class="form-control" id="contactEmail" required>
+                                        <div class="invalid-feedback">
+                                            Silakan masukkan email yang valid
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="contactSubject" class="form-label">Subjek</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                        <input type="text" class="form-control" id="contactSubject">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="contactMessage" class="form-label">Pesan</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text align-items-start pt-2"><i
+                                                class="fas fa-comment"></i></span>
+                                        <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
+                                        <div class="invalid-feedback">
+                                            Silakan tulis pesan Anda
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-pill">
+                                        Kirim Pesan
+                                        <i class="fas fa-paper-plane ms-2"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-section bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Kolom Profil -->
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo mb-3">
+                        <h3 class="text-white fw-bold">RFN</h3>
+                    </div>
+                    <p class="text-white">
+                        Seorang Fullstack Web Developer yang berdedikasi menciptakan solusi digital inovatif
+                        dan membantu bisnis tumbuh melalui teknologi.
+                    </p>
+                    <div class="footer-social-links mt-3">
+                        <a href="#" class="text-white me-3 social-icon">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white me-3 social-icon">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white me-3 social-icon">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white social-icon">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kolom Navigasi Cepat -->
+                <div class="col-md-4 mb-4 text-white">
+                    <h5 class="footer-title mb-3">Navigasi Cepat</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="footer-links list-unstyled">
+                                <li class="mb-2 text-white">
+                                    <a href="#beranda" class="text-white">Beranda</a>
+                                </li>
+                                <li class="mb-2 text-white">
+                                    <a href="#tentang" class="text-white">Tentang</a>
+                                </li>
+                                <li class="mb-2 text-white">
+                                    <a href="#portofolio" class="text-white">Portofolio</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="footer-links list-unstyled">
+                                <li class="mb-2 text-white">
+                                    <a href="#" class="text-white">Blog</a>
+                                </li>
+                                <li class="mb-2 text-white">
+                                    <a href="#" class="text-white">Kontak</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-white">Privasi</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kontak -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title mb-3">Hubungi Saya</h5>
+                    <ul class="footer-contact list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2 text-primary"></i>
+                            <span>rizkyferdi@example.com</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone me-2 text-primary"></i>
+                            <span>+62 812-3456-7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                            <span>Bandung, Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Garis Pemisah -->
+            <hr class="my-4 border-secondary">
+
+            <!-- Hak Cipta -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 text-white">
+                        &copy; 2024 Rizky Ferdi Nugraha. All Rights Reserved.
+                        <span class="d-block d-md-inline mt-2 mt-md-0">
+                            Dibangun dengan <i class="fas fa-heart text-danger"></i> di Bandung, Indonesia
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.custom-navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script>
+        // Validasi Formulir
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        // Kirim Pesan (contoh sederhana)
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Ambil nilai input
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value;
+
+            // Contoh pengiriman pesan (bisa diganti dengan AJAX/fetch)
+            alert(`Pesan terkirim!\n\nNama: ${name}\nEmail: ${email}\nSubjek: ${subject}\nPesan: ${message}`);
+
+            // Reset form setelah pengiriman
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    <script>
+        function createParticles() {
+            const heroSection = document.querySelector('.hero-section');
+            const particlesContainer = document.createElement('div');
+            particlesContainer.classList.add('hero-particles');
+            heroSection.appendChild(particlesContainer);
+
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                particle.style.width = `${Math.random() * 10 + 5}px`;
+                particle.style.height = particle.style.width;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
+                particle.style.opacity = Math.random();
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        window.addEventListener('load', createParticles);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
